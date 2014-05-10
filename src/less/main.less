@@ -1,0 +1,103 @@
+@font-face {
+  font-family: ComicSansMS;
+  src: url('../assets/fonts/ComicSansMS.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Impact;
+  src: url('../assets/fonts/Impact.ttf') format('truetype');
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+
+  &.style-0 {
+    background-color: #000;
+
+    .text {
+      color: #fff;
+    }
+  }
+  &.style-1 {
+    background-color: #fff;
+
+    .text {
+      color: #000;
+    }
+  }
+  &.style-2 {
+    background-color: #fff700;
+
+    .text {
+      color: #d500ff;
+    }
+  }
+  &.style-3 {
+    background-color: #000;
+
+    .text {
+      color: #fff;
+      font-family: ComicSansMS, Comic Sans MS, Comic Sans, cursive;
+    }
+  }
+  &.style-4 {
+    background-color: #000;
+
+    .text {
+      color: #fff;
+      font-family: Impact, fantasy;
+      text-transform: uppercase;
+    }
+  }
+
+  .navbar.navbar-default {
+    background: transparent;
+    background-color: #fff700;
+    border-color: #cbba00;
+    opacity: 0;
+    top: -50px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+
+    &.visible {
+      opacity: 1;
+      top: 0;
+    }
+
+    a {
+      color: #9000ad;
+    }
+
+    .navbar-form {
+      border: 0;
+      border-color: transparent;
+    }
+
+    .form-control.text-input {
+      width: 100%;
+      border: 2px solid #000;
+      border-radius: 0;
+      color: #000;
+    }
+  }
+
+  .text-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .text {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+  }
+}
