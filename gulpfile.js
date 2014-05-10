@@ -14,6 +14,8 @@ var haml_path = './src/haml';
 var tmp_css_path = './tmp/css'
 var tmp_js_path = './tmp/js'
 
+var cordova_app_path = '../cordova_apps/photobomb/'
+
 var on_error = function (err) { console.error(err.message); };
 
 gulp.task('coffee', function() {
@@ -35,7 +37,7 @@ gulp.task('less', function () {
 });
 
 gulp.task('cca prepare', shell.task([
-  'cca prepare'
+  'cd ' + cordova_app_path + '; cca prepare'
 ]));
 
 gulp.task('watch', function() {
