@@ -49,6 +49,7 @@ gulp.task('watch', function() {
 gulp.task('minify-css', ['less'], function() {
   return gulp.src(['bower_components/bootstrap/dist/css/bootstrap.min.css',
                    'bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
+                   'bower_components/fontawesome/css/font-awesome.min.css',
                    tmp_css_path + '/**/*.css']).
               pipe(concat('all.css').on('error', on_error)).
               pipe(gulp.dest('./www/css'))

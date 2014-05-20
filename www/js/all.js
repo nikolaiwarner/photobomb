@@ -719,7 +719,15 @@ current_style = 0;
 max_styles = 5;
 
 $(function() {
-  setInterval(text_changed, 500);
+  if (chrome.storage) {
+    chrome.storage.local.get('last_text', function(last_text) {
+      console.log(last_text);
+      if (last_text) {
+        return $('.text').text(text);
+      }
+    });
+  }
+  setInterval(text_changed, 1000);
   $('body').addClass('style-0');
   $(".text").swipe({
     threshold: 25,
@@ -730,14 +738,27 @@ $(function() {
       return $('.text-input').blur();
     }
   });
+  $(".btn-settings, .page-settings").swipe({
+    click: function() {
+      $('.page-settings').toggleClass('visible');
+      return $('.text-input').blur();
+    }
+  });
   $('.navbar').addClass('visible');
-  return StatusBar.hide();
+  if (StatusBar) {
+    return StatusBar.hide();
+  }
 });
 
 text_changed = function() {
   var text;
   text = $('.text-input').val();
   $('.text').text(text);
+  if (chrome.storage) {
+    chrome.storage.local.set({
+      'last_text': text
+    });
+  }
   return textFit($('.text')[0], {
     minFontSize: 6,
     maxFontSize: 250,

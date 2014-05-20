@@ -1,11 +1,11 @@
 @font-face {
   font-family: ComicSansMS;
-  src: url('../assets/fonts/ComicSansMS.ttf') format('truetype');
+  src: url('../fonts/ComicSansMS.ttf') format('truetype');
 }
 
 @font-face {
   font-family: Impact;
-  src: url('../assets/fonts/Impact.ttf') format('truetype');
+  src: url('../fonts/Impact.ttf') format('truetype');
 }
 
 html {
@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  background-color: #000;
   width: 100%;
   height: 100%;
 
@@ -99,5 +100,30 @@ body {
     height: 100%;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
+  }
+
+  .page-settings {
+    font-family: Impact, fantasy;
+    z-index: 10000;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    text-align: center;
+    font-size: 50px;
+    background-color: yellow;
+    color: #000;
+    top: -500px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+
+    a {
+      color: #000;
+    }
+
+    &.visible {
+      top: 0;
+      opacity: 1;
+    }
   }
 }
