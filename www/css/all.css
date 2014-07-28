@@ -66,12 +66,19 @@ body.style-4 .text {
   font-family: Impact, fantasy;
   text-transform: uppercase;
 }
+body.style-5 {
+  background-color: #000;
+}
+body.style-5 .text {
+  color: red;
+}
 body .navbar.navbar-default {
   background: transparent;
   background-color: #fff700;
   border-color: #cbba00;
   opacity: 0;
   top: -50px;
+  height: 65px;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
 }
@@ -91,6 +98,7 @@ body .navbar.navbar-default .form-control.text-input {
   border: 2px solid #000;
   border-radius: 0;
   color: #000;
+  margin-top: -10px;
 }
 body .text-wrapper {
   position: relative;
@@ -105,21 +113,23 @@ body .text {
   -webkit-transition: all 0.5s;
 }
 body .page-settings {
+  font-family: Impact, fantasy;
   z-index: 10000;
   position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0;
-  text-align: center;
-  font-size: 50px;
+  text-align: right;
   background-color: yellow;
-  color: #000;
-  top: -500px;
+  padding: 20px;
+  top: -1000px;
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
 }
+body .page-settings,
 body .page-settings a {
   color: #000;
+  font-size: 30px;
 }
 body .page-settings.visible {
   top: 0;

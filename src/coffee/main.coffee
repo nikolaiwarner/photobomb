@@ -1,13 +1,17 @@
 current_style = 0
 max_styles = 5
+default_text = 'LOL'
+current_text = default_text
 
 $ ->
-  if chrome.storage
-    chrome.storage.local.get 'last_text', (last_text) ->
-      $('.text').text(text) if last_text
-
-  setInterval text_changed, 1000
   $('body').addClass('style-0')
+
+  $('body').on 'keyup', =>
+    current_text = $('.text-input').val()
+    text_changed()
+
+  $(window).on 'orientationchange', =>
+    setTimeout text_changed, 1000
 
   $(".text").swipe
     threshold: 25
@@ -25,12 +29,20 @@ $ ->
   $('.navbar').addClass('visible')
   StatusBar.hide() if StatusBar
 
-text_changed = ->
-  text = $('.text-input').val()
-  $('.text').text(text)
+  if chrome.storage
+    chrome.storage.local.get {'last_text': current_text}, (items) =>
+      current_text = items.last_text || default_text
+      text_changed()
+  else
+    text_changed()
 
-  chrome.storage.local.set({'last_text': text}) if chrome.storage
+text_changed = =>
+  $('.text').text(current_text)
+  $('.text-input').val(current_text)
+  chrome.storage.local.set({'last_text': current_text}) if chrome.storage
+  resize_text()
 
+resize_text = ->
   textFit $('.text')[0],
     minFontSize: 6
     maxFontSize: 250

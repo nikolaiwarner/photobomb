@@ -11,10 +11,10 @@ var coffee_path = './src/coffee';
 var less_path = './src/less';
 var haml_path = './src/haml';
 
-var tmp_css_path = './tmp/css'
-var tmp_js_path = './tmp/js'
+var tmp_css_path = './tmp/css';
+var tmp_js_path = './tmp/js';
 
-var cordova_app_path = '../cordova_apps/photobomb/'
+var cordova_app_path = '../cordova_apps/photobomb/';
 
 var on_error = function (err) { console.error(err.message); };
 
@@ -49,7 +49,7 @@ gulp.task('watch', function() {
 gulp.task('minify-css', ['less'], function() {
   return gulp.src(['bower_components/bootstrap/dist/css/bootstrap.min.css',
                    'bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
-                   'bower_components/fontawesome/css/font-awesome.min.css',
+                   'bower_components/Font-Awesome/css/font-awesome.min.css',
                    tmp_css_path + '/**/*.css']).
               pipe(concat('all.css').on('error', on_error)).
               pipe(gulp.dest('./www/css'))

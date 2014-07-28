@@ -10,5 +10,6 @@ Make a new CCA app and link the www dir to the app:
 - cca create photobomb --link-to=/Users/nikolaiwarner/repositories/photobomb/www
 
 - cca prepare
-- cca build ios
-- cca run ios
+- cca build android
+- cca run android
+- cca push --watch --target=[ip address]
